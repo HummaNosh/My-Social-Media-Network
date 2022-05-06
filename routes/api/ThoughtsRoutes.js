@@ -15,19 +15,19 @@ const {
 // just get all the thoughts
 router
 .route('/')
-.get(getallThoughts)
+// .get(getallThoughts)
 
 // get a thought by its id, update or delete it
 router
 .route('/:thoughtID')
-.get(getThoubyID)
-.put(updateThou)
-.delete(deleteThou)
+// // .get(getThoubyID)
+// .put(updateThou)
+// .delete(deleteThou)
 
 // create a new thought linked to the user with his id
 
 router.route( '/:enteruserID')
-.post(createNewThou)
+// .post(createNewThou)
 
 
 // /api/thoughts/:thoughtId/reactions
@@ -37,12 +37,12 @@ router.route( '/:enteruserID')
 // create a new reaction per thought using its id
 router
 .route('/:thoughtId/reactions')
-.post (createNewReaction)
+// .post (createNewReaction)
 
 // delete a reaction to A THOUGHT using its ID
 router
 .route('/:thoughtId/reactionsID')
-.delete(deleteReaction)
+// .delete(deleteReaction)
 
 
 
