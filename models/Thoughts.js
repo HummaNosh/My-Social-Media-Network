@@ -31,8 +31,8 @@ const ThouSchema = new Schema(
     ThouSchema
       .virtual('reactionCount')
       .get(function () {
-        return this.responses.length;
-        // or is it reactions.lenght???
+        return this.reactions.length;
+
       });
 
       const Thoughts = model ("Thoughts", ThouSchema);

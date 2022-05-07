@@ -26,10 +26,9 @@ module.exports = {
       .select('-__v')
       .then(async (user) =>
         !user
-          ? res.status(404).json({ message: 'No user with that ID' })
+          ? res.status(404).json({ message: 'No such user exists with that ID!' })
           : res.json({
             user
-            //   grade: await grade(req.params.userID),
             })
       )
       .catch((err) => {
@@ -45,19 +44,17 @@ createUser(req, res) {
       .catch((err) => res.status(500).json({message: "Borked!!", err}));
   },
 
-
-  // WORK ON THIS!!!!!!!!!!!!!
+// below works
   deleteUser(req, res) {
     User.findOneAndRemove({ _id: req.params.id })
-      .then((user) =>
+      .then((user) => 
         !user
-          ? res.status(404).json({ message: 'No such user exists' })
-          :res.json
+          ? res
+            .status(404)
+            .json({ message: "No such user exists with that ID! " })
+          :res.json({message:"Wahoo! That user has been deleted successfully!", user})
       )
-      .catch((err) => {
-        console.log("borked", err);
-        res.status(500).json(err);
-      });
+      .catch((err) => res.status(500).json({message: "Borked!!", err}));
   },
 
 // below works
@@ -69,47 +66,46 @@ createUser(req, res) {
     )
       .then((user) =>
         !user
-          ? res.status(404).json({ message: 'No course with this id!' })
+          ? res.status(404).json({ message: 'No such user exists with that ID!' })
           : res.json({message:"Wahoo! You have made changes and updated this user successfully!", user})
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => res.status(500).json({message: "Borked!!", err}));
   },
 
 
-//   adding a friend..
-  newFriend(req, res) {
-    console.log('You are adding a new friend- make sure theyre cute');
-    console.log(req.body);
-    User.findOneAndUpdate(
-      { _id: req.params.id },
-      { $addToSet: { friends: req.body } },
-     { runValidators: true, new: true }
-    )
-      .then((User) =>
-      console.log("is it working?"),
-        !User
-          ? res
-              .status(404)
-              .json({ message: 'No one found with that ID' })
-          : res.json(User)
-      )
-      .catch((err) => res.status(500).json(err));
-  },
-
-
+//   adding a friend..works
+ newFriend(req,res){
+    User.findByIdAndUpdate(
+        {_id: req.params.id},
+        {$addToSet: {friends: req.params.friendId}},
+        {runValidators: true, new: true}
+        )
+        .select('-__v')
+        .then((user)=> {
+            if(!user){
+                res.status(404).json({ message: "No such user exists with that ID!" })
+                return;
+            }
+            res.json({message:"Wahoo! You've added a new friend to this user!", user});
+        })
+        .catch((err)=>{
+            res.status(400).json({message: "Borked!!", err})
+        })
+},
+// works
   deleteFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.id },
-      { $pull: { friendsId:req.params.friendId } },
-    //   { runValidators: true, new: true }
+      { $pull: { friends:req.params.friendId } },
+ { runValidators: true, new: true }
     )
-      .then((User) =>
-        !User
+      .then((user) =>
+        !user
           ? res
               .status(404)
-              .json({ message: 'No User found with that ID' })
-          : res.json(User)
+              .json({ message: "No such user exists with that ID!" })
+          : res.json({message:"Wahoo! You've deleted a friend from this user!", user})
       )
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => res.status(500).json({message: "Borked!!", err}));
   },
 };
