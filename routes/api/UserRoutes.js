@@ -35,10 +35,9 @@ router
 // DOUBLE CHECK.............
 router
 .route('/:id/friends/:friendId')
-.post(newFriend)
 .delete(deleteFriend)
 
-// not sure
+
 router
 .route('/:id/friends')
 .post(newFriend)

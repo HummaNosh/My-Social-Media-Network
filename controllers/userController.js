@@ -77,7 +77,7 @@ createUser(req, res) {
  newFriend(req,res){
     User.findByIdAndUpdate(
         {_id: req.params.id},
-        {$addToSet: {friends: req.params.friendId}},
+        {$push: { friends: req.body }},
         {runValidators: true, new: true}
         )
         .select('-__v')
@@ -86,6 +86,7 @@ createUser(req, res) {
                 res.status(404).json({ message: "No such user exists with that ID!" })
                 return;
             }
+   
             res.json({message:"Wahoo! You've added a new friend to this user!", user});
         })
         .catch((err)=>{
