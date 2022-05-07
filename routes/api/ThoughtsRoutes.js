@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { createRequire } = require('module');
+// const { createRequire } = require('module');
+
 const {
   getallThoughts,
   getThoubyID,
@@ -16,6 +17,7 @@ const {
 router
 .route('/')
 // .get(getallThoughts)
+
 
 // get a thought by its id, update or delete it
 router

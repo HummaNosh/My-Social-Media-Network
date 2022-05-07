@@ -2,9 +2,9 @@ const router = require('express').Router();
 
 const {
   getallUsers,
-  // getUserbyID,
+  getUserbyID,
   createUser,
-  // updateUser,
+  updateUser,
   deleteUser,
   newFriend,
   deleteFriend
@@ -24,8 +24,8 @@ router
 //   get users by the id, update or delete it
   router
   .route('/:id')
-  // .get(getUserbyID)
-  // .put(updateUser)
+ .get(getUserbyID)
+  .put(updateUser)
   .delete(deleteUser);
 
 
@@ -38,5 +38,9 @@ router
 .post(newFriend)
 .delete(deleteFriend)
 
+// not sure
+router
+.route('/:id/friends')
+.post(newFriend)
 
 module.exports = router;
