@@ -76,16 +76,16 @@ module.exports = {
         .catch(err => res.status(400).json({message:"Borked!", err}))
 },
 
-// THIS DOESNT WORK
+
 deleteReaction(req, res) {
     Thoughts.findOneAndUpdate(
         { _id: req.params.thoughtId },
         { $pull: { reactions: { reactionId: req.params.reactionId }}},
-        {runValidators: true, new: true }
+        { new: true }
     )
         .then((thoughts) => {
-            res.json(thoughts)
+            res.json({message:"Wahoo! You have deleted that reaction!", thoughts})
         })
-        .catch(err => res.json(err))
+        .catch(err => res.json({message:"Borked!", err}))
 }
 };

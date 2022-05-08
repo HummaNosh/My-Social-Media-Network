@@ -8,7 +8,6 @@ const {
   updateThou,
   deleteThou,
   createNewReaction,
-  // updateReaction,
 deleteReaction
 
 } = require('../../controllers/thoughtsController');
@@ -34,7 +33,7 @@ router
 
 // delete a reaction to A THOUGHT using its ID
 router
-.route('/:thoughtId/reactions/reactionId')
+.route('/:thoughtId/reactions/:reactionId')
  .delete(deleteReaction)
 
 
