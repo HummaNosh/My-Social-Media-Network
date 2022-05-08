@@ -23,14 +23,20 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 # Walkthrough Videos
 
-## Start up
-
 ## GET, POST, PUT, DELETE Users
 
-;ink here
+https://drive.google.com/file/d/1D60dy3MjXID97UerU4b5GIgVZF4HR2VG/view?usp=sharing
 
 ## POST and DELETE New friends
 
 ## GET, POST, PUT, DELETE Thoughts
 
-## POST and DELETE new reactions
+https://drive.google.com/file/d/1iLxR_90ssUlHO1fa5GRjyohbQ2uZktLH/view?usp=sharing
+
+## Pushing Thoughts to Users
+
+https://drive.google.com/file/d/1-n2yJFxetQyCf9sQyPbcpgtoADozr5NA/view?usp=sharing
+
+## POST and DELETE new Reactions to Thoughts
+
+https://drive.google.com/file/d/1OuBc5qPWvNJq6xtcuohqlnrgWstckm7P/view?usp=sharing
