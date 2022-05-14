@@ -29,6 +29,8 @@ https://drive.google.com/file/d/1D60dy3MjXID97UerU4b5GIgVZF4HR2VG/view?usp=shari
 
 ## POST and DELETE New friends
 
+https://drive.google.com/file/d/1yL3AiZutxMfPha1zHvlW7tl6yvh69s9p/view?usp=sharing
+
 ## GET, POST, PUT, DELETE Thoughts
 
 https://drive.google.com/file/d/1iLxR_90ssUlHO1fa5GRjyohbQ2uZktLH/view?usp=sharing
