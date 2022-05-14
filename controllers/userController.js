@@ -77,7 +77,7 @@ createUser(req, res) {
  newFriend(req,res){
     User.findByIdAndUpdate(
         {_id: req.params.id},
-        {$push: { friends: req.body }},
+        {$push: { friends: req.params.friendId }},
         {runValidators: true, new: true}
         )
         .select('-__v')

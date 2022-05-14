@@ -34,13 +34,14 @@ router
 // DELETE to remove a friend from a user's friend list
 // DOUBLE CHECK.............
 
-router
-.route('/:id/friends')
-.post(newFriend)
+// router
+// .route('/:id/friends')
+// .post(newFriend)
 
 
 router
 .route('/:id/friends/:friendId')
+.post(newFriend)
 .delete(deleteFriend)
 
 
